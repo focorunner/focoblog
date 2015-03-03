@@ -16,8 +16,5 @@
 !/log/.keep
 /tmp
 
-# Ignore sublime project and workspace files
-/focorunner.*
-
 # Ignore Spring files.
 /spring/*.pid
