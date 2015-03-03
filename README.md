@@ -1,7 +1,26 @@
-Focorunner
+Focoblog
 ==========
 
-This is a Rails-based blog to update and reimagine my old focorunner blog.
+This is a Rails-based blog that I am building out for my own use, but
+anyone who wants to fork and do with it what they will.
+
+Status
+==========
+
+This blog app is currently under construction. The user authentication/
+authorization system is in place (see below), along with basic article 
+functionality. I'm in the process of integrating the authorization more 
+fully into article creation and view flows, so the blog owner/author only 
+can edit/delete articles.
+
+Next Steps
+==========
+High Priority: 
+        Comments
+        Tags
+Other things on the agenda: 
+        Add "author" access level between user and admin
+        Make access level editable by admins from user pages
 
 
 Rails User Authentication

@@ -19,7 +19,7 @@ html {
 
 body {
   padding-top: 60px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 section {
@@ -30,37 +30,38 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
+small {
+  font-size: 0.7em;
+  color: $gray;
 }
 
-main {
-  height: 600px;
+.center {
+  text-align: center;
+}
+
+.back_link {
+  font-size: 0.95em;
+  font-weight: bold;
 }
 
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  color: $gray;
 }
 
 h1 {
   font-size: 2em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+
 }
 
 h2 {
   font-size: 1.5em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 p {
@@ -70,21 +71,26 @@ p {
 
 /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
+header {
+  #logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 2.2em;
     color: white;
-    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
+.navbar-nav li a {
+  line-height: 32px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
 /* footer */
 
 footer {
@@ -99,6 +105,7 @@ footer {
     }
   }
   small {
+    font-size: 0.9em;
     float: left;
   }
   ul {
@@ -125,11 +132,14 @@ footer {
 
 aside {
   section.user_info {
-    margin-top: 20px;
+    margin-top: 70px;
+    text-align: center;
+    .gravatar {
+      margin-bottom: 10px;
+    }
   }
   section {
     padding: 10px 0;
-    margin-top: 20px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -141,17 +151,19 @@ aside {
     }
     h1 {
       font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
+      text-align: center;
       margin-bottom: 3px;
       margin-top: 0px;
     }
   }
 }
 
+/* Gravatar general */
+
 .gravatar {
-  float: left;
-  margin-right: 10px
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 10%
 }
 
 .gravatar_edit {
@@ -163,8 +175,10 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 0px;
   @include box_sizing;
+  &.btn {
+    margin-top: 10px;
+  }
 }
 
 input {
@@ -172,7 +186,7 @@ input {
 }
 
 label {
-  margin: 0;
+  margin: 5px 0px 0px 0px;
 }
 
 #error_explanation {
@@ -204,6 +218,12 @@ label {
   margin-left: 0;
 }
 
+.article_form {
+  textarea {
+    min-height: 300px;
+  }
+}
+
 .formbox {
   width: 300px;
   margin: 0 auto;
@@ -220,3 +240,40 @@ label {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* Articles */
+
+#articles {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
+
+
+
+/* Pagination */
+
+.pagination {
+  font-size: 0.95em;
+  margin: 0px;
+  li a {
+    color: $gray;
+    border: none;
+    padding: 0px 6px;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  .active a {
+    border-radius: 50%;
+    background-color: $gray;
+    &:hover {
+      background-color: $gray-darker;
+    }
+  }
+}
+
+

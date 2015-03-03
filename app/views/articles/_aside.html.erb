@@ -1,0 +1,11 @@
+  <aside class="row">
+    <div class="col-md-3 col-sm-4 col-md-offset-1 hidden-xs">
+      <br>
+      <section class="user_info">
+        <div>
+          <h4><%#= current_user.name %><%= User.first.name %></h4>
+          <%= gravatar_for User.first, size: 100 %>
+        </div>
+      </section>
+    </div>
+  </aside>
