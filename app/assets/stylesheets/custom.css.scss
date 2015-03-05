@@ -288,6 +288,7 @@ label {
 
 #comments {
   padding-left: 60px;
+  padding-right: 60px;
   .comment {
     border-top: 1px solid #dddddd;
     padding: 10px 5px 0px 10px;
@@ -308,5 +309,13 @@ label {
     padding: 10px;
     background-color: #ddd;
     border-radius: 5px;
+  }
+}
+
+/* Tags */
+
+.tags {
+  .btn-default {
+    padding: 0px 5px;
   }
 }

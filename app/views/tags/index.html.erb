@@ -1,0 +1,17 @@
+<% provide(:title, "Tag Index") %>
+
+<main class="row">
+    <h1>All Tags</h1>
+  <section class="col-md-8"
+      <div class="tags">
+        <% if @tags.present? %>
+          <small>
+            <% @tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+            <% end %>
+          </small>
+        <% end %>
+      </div>
+  </section>
+</main>
+

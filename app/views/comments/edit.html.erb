@@ -1,8 +1,10 @@
-<section class="row">
+<% provide(:title, "Edit Comment") %>
+
+<main class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [ @article, @comment ] do |f| %>
       <%= f.text_area :body, placeholder: "Comment text", class: "form-control" %>
       <%= f.submit 'Submit', class: "btn btn-primary" %>
     <% end %>
   </div>
-</section>
+</main>

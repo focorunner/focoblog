@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to :back #login_path
+    redirect_to (request.referer.present? ? :back : root_url)
   end
 end

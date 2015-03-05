@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 
-<section class="row">
-  <aside class="col-md-4 col-md-offset-1">
+<main class="row">
+  <aside class="col-md-4 col-md-offset-4">
     <section class="user_info">
       <div>
         <%= gravatar_for @user, size: 150 %>   
@@ -11,4 +11,4 @@
       </div>
     </section>
   </aside>
-</section>
+</main>

@@ -1,12 +1,16 @@
   <aside class="row">
     <div class="col-md-3 col-sm-4 col-md-offset-1 hidden-xs">
-      <br>
       <section class="user_info">
         <div>
-          <%= gravatar_for User.first, size: 100 %>
-          <h4><%#= current_user.name %>
-            <%= @article.present? ? User.find(@article.user_id).name : User.first.name %>
-          </h4>
+          <h3>Author</h3>
+          <% if @article.present? %>
+
+            <%= gravatar_for User.find(@article.user_id), size: 100 %>
+            <h4><%= User.find(@article.user_id).name %></h4>
+          <% else %>
+            <%= gravatar_for User.first, size: 100 %>
+            <h4><%= User.first.name %></h4>
+          <% end %>
         </div>
       </section>
     </div>

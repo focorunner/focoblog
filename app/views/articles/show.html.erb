@@ -1,3 +1,5 @@
+<% provide(:title, @article.title) %>
+
 <main class="row">
 
   <article class="col-md-8 col-sm-8">
@@ -11,6 +13,16 @@
     <br>
     <div id="article" style="border-bottom: 1px solid black;">
       <h2><%= @article.title %></h2>
+      <div class="tags">
+        <% if @article.tags.present? %>
+          <small>
+            Tags:
+            <% @article.tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+            <% end %>
+          </small>
+        <% end %>
+      </div>  
       <p><%= @article.body %></p>
       <small>
         Created <%= @article.created_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %> | 

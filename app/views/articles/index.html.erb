@@ -1,46 +1,16 @@
+<% provide(:title, 'Article Index') %>
+
 <main class="row">
   <article class="col-md-8 col-sm-8">
   <h1 class="center">Article Index</h1>
-    <div class="center"><%= will_paginate @articles, page_links: false,
-      previous_label: "<b class='glyphicon glyphicon-arrow-left'></b> <b>Newer</b>",
-      next_label: "<b>Older </b><b class='glyphicon glyphicon-arrow-right'></b>" %>
-    </div>
     <div class="text-left">
       <%= (link_to "New Article", new_article_path, class: "btn btn-default") if logged_in? && current_user.admin? %>
     </div>
-    <ul id="articles" class="list-unstyled">   
-      <% @articles.each do |article| %>
-        <li>
-          <div>
-            <h3><%= link_to article.title, article_path(article) %></h3>
-            <span>
-              <%= truncate(article.body, length: 200) { link_to "continue", article } %>
-            </span>
-            </div>
-          <small>
-            Created <%= article.created_at.strftime("%B %d, %Y") %> | 
-            Last Updated <%= article.updated_at.strftime("%B %d, %Y") %>
-          </small>
-          <div class="text-right">
-            <small><%= pluralize(article.comments.count, "comment") %>
-            <% if logged_in? && current_user.admin? %>
-               | <%= link_to 'Edit', edit_article_path(article) %> | 
-              <%= link_to 'Delete', article_path(article),
-                          method: :delete,
-                          data: { confirm: 'Delete Article... Are you sure?' } %>
-            <% end %>
-            </small>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-    <br>
-    <div class="center"><%= will_paginate @articles, page_links: false,
-      previous_label: "<b class='glyphicon glyphicon-arrow-left'></b> <b>Newer</b>",
-      next_label: "<b>Older </b><b class='glyphicon glyphicon-arrow-right'></b>" %>
-    </div>
+
+<%= render 'articles' %>
+
   </article>
 
-  <%= render 'aside' %>
+<%= render 'aside' %>
 
 </main>
