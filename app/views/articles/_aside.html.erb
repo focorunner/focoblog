@@ -2,12 +2,12 @@
     <div class="col-md-3 col-sm-4 col-md-offset-1 hidden-xs">
       <section class="user_info">
         <div>
-          <h3>Author</h3>
           <% if @article.present? %>
-
+            <h3>Author</h3>
             <%= gravatar_for User.find(@article.user_id), size: 100 %>
             <h4><%= User.find(@article.user_id).name %></h4>
           <% else %>
+            <h3>Owner</h3>
             <%= gravatar_for User.first, size: 100 %>
             <h4><%= User.first.name %></h4>
           <% end %>
