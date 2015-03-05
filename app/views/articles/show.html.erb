@@ -2,34 +2,49 @@
 
   <article class="col-md-8 col-sm-8">
     <div class="back_link">
-      <%= link_to articles_path do %>
-        <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
-      <% end %>
+        <small>
+          <%= link_to articles_path do %>
+            <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
+          <% end %>
+        </small>
     </div>
     <br>
-    <div id="article">
-      <div>
-        <h2><%= @article.title %></h2>
-        <small>
-          Created <%= @article.created_at.strftime("%B %d, %Y") %> | 
-          Last Updated <%= @article.updated_at.strftime("%B %d, %Y") %>
-        <% if logged_in? && current_user.admin? %>
-           | <%= link_to 'Edit', edit_article_path %> | 
-          <%= link_to 'Delete', article_path,
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' } %>
-
-        <% end %>
-        </small>
-      </div>
+    <div id="article" style="border-bottom: 1px solid black;">
+      <h2><%= @article.title %></h2>
       <p><%= @article.body %></p>
+      <small>
+        Created <%= @article.created_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %> | 
+        Last Updated <%= @article.updated_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %>
+        <% if logged_in? && current_user.admin? %>
+           | <%= link_to 'Edit', edit_article_path %>
+           | <%= link_to 'Delete', article_path,
+                    method: :delete,
+                    data: { confirm: 'Delete Article... Are you sure?' } %>
+        <% end %>
+      </small>
     </div>
+
+    <div id="comments">      
+      <h3>Comments</h3>
+        <%= render 'comment' %>
+      <div class="panel panel-default">
+          <% if logged_in? %>
+            <%= render partial: 'comments/form' %>
+          <% else %>
+            <div class="center"><%= link_to 'Log in', login_path %> to add comments.</div>
+          <% end %>
+      </div>
+    </div>
+
     <br>
     <div class="back_link">
-      <%= link_to articles_path do %>
-        <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
-      <% end %>
+        <small>
+          <%= link_to articles_path do %>
+            <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
+          <% end %>
+        </small>
     </div>
+
   </article>
 
   <%= render 'aside' %>

@@ -3,8 +3,10 @@
       <br>
       <section class="user_info">
         <div>
-          <h4><%#= current_user.name %><%= User.first.name %></h4>
           <%= gravatar_for User.first, size: 100 %>
+          <h4><%#= current_user.name %>
+            <%= @article.present? ? User.find(@article.user_id).name : User.first.name %>
+          </h4>
         </div>
       </section>
     </div>

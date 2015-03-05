@@ -13,23 +13,24 @@
         <li>
           <div>
             <h3><%= link_to article.title, article_path(article) %></h3>
-            <small>
+            <span>
+              <%= truncate(article.body, length: 200) { link_to "continue", article } %>
+            </span>
+            </div>
+          <small>
             Created <%= article.created_at.strftime("%B %d, %Y") %> | 
             Last Updated <%= article.updated_at.strftime("%B %d, %Y") %>
-            </small>
-          </div>
-          <span>
-            <%= truncate(article.body, length: 200) { link_to "continue", article } %>
-          </span>
-          <% if logged_in? && current_user.admin? %>
+          </small>
           <div class="text-right">
-            <small><%= link_to 'Edit', edit_article_path(article) %> | 
+            <small><%= pluralize(article.comments.count, "comment") %>
+            <% if logged_in? && current_user.admin? %>
+               | <%= link_to 'Edit', edit_article_path(article) %> | 
               <%= link_to 'Delete', article_path(article),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %>
+                          method: :delete,
+                          data: { confirm: 'Delete Article... Are you sure?' } %>
+            <% end %>
             </small>
           </div>
-          <% end %>
         </li>
       <% end %>
     </ul>

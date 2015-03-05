@@ -9,15 +9,31 @@ Status
 
 This blog app is currently under construction. The user authentication/
 authorization system is in place (see below), along with basic article 
-functionality. I'm in the process of integrating the authorization more 
-fully into article creation and view flows, so the blog owner/author only 
-can edit/delete articles.
+functionality. Authorization is now more fully integrated with article 
+creation, create, ane edit actions, and authos are displayed for articles
+along with gravatar in an aside. The blog ower (first user) and avatar
+are displayed in the article index, which displays a paginated list of
+articles (will-paginate gem). Only the blog owner can current create,
+edit, and delete articles and comments.
+
+Comment functionality is added, and users must be logged in to comment.
+For logged in users, a simple form appears under the post body, all 
+pretty like.
+
+Since I rely on bootstrap heavily, I threw in some coffeescript to use
+a modal for delete confirmation, which looks nicer than the stock js
+dialog. I am exploring using a modal for login as well.
+
 
 Next Steps
 ==========
-High Priority: 
-        Comments
-        Tags
+High Priority:
+        Add ability for article author to edit/delete their own
+        Add ability for comment author to edit/delete their own
+        Add, but do not yet implement non login comments
+          - here, the user would need to enter an email
+          - these comments should be moderated by admin
+        Add Tags to articles
 Other things on the agenda: 
         Add "author" access level between user and admin
         Make access level editable by admins from user pages
