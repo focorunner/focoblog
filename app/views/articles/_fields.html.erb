@@ -5,6 +5,7 @@
     <%= f.text_field :title, class: 'form-control' %>
 
     <%= f.label :body %>
+    <%= render 'shared/markdown_buttons' %>
     <%= f.text_area :body, class: 'form-control' %>
 
     <%= f.label :tag_list %><br />
