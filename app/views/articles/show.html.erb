@@ -24,7 +24,7 @@
             <% end %>
           </small>
       </div>  
-      <p><%= @article.body %></p>
+      <p><%= kramdown @article.body %></p>
       <small>
         Created <%= @article.created_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %> | 
         Last Updated <%= @article.updated_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %>

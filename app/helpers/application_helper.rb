@@ -9,4 +9,8 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def kramdown(text)
+    return sanitize Kramdown::Document.new(text).to_html
+  end
 end
