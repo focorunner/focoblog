@@ -1,12 +1,18 @@
 <% provide(:title, "Edit Article") %>
 
 <main class="row">
+  <h1 class="center">Edit Article</h1>
   <article class="col-md-8 col-md-offset-2">
   <%= form_for(@article) do |f| %>
 
   <%= render 'fields', f: f %>
 
   <%= f.submit "Update Article", class: 'btn btn-primary' %>
+  
+  <div id="form_reset" class="center">
+    <%= button_tag "Reset", type: :reset, class: 'center btn btn-default' %>
+    <small><%= link_to 'Cancel', :back %></small>
+  </div>
 
   <% end %>
   </article>

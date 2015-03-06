@@ -10,18 +10,19 @@
           <% end %>
         </small>
     </div>
-    <br>
     <div id="article" style="border-bottom: 1px solid black;">
-      <h2><%= @article.title %></h2>
+      <h1><%= @article.title %></h1>
       <div class="tags">
-        <% if @article.tags.present? %>
           <small>
             Tags:
-            <% @article.tags.each do |tag| %>
-              <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+            <% if @article.tags.present? %>
+              <% @article.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+              <% end %>
+            <% else %>
+              none
             <% end %>
           </small>
-        <% end %>
       </div>  
       <p><%= @article.body %></p>
       <small>

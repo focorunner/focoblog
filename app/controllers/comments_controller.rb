@@ -3,9 +3,13 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.article_id = params[:article_id]
 
-    @comment.save
-
-    redirect_to article_path(@comment.article)
+    if @comment.save
+      flash[:success] = "Comment created"
+      redirect_to article_path(@comment.article)
+    else
+      flash[:danger] = "Comment #{@comment.errors.full_messages.join(', ')}"
+      redirect_to article_path(@comment.article)
+    end
   end
 
   def edit
@@ -15,17 +19,23 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update_attributes(comment_params)
-    redirect_to @comment.article
+    if @comment.update_attributes(comment_params)
+      flash[:success] = "Comment Updated"
+      redirect_to @comment.article
+    else
+      flash[:danger] = "Comment #{@comment.errors.full_messages.join(', ')}"
+      redirect_to article_path(@comment.article)
+    end
   end
 
   def destroy
     @article = Article.find(params[:article_id])
     Comment.find(params[:id]).destroy
+    flash[:success] = "Comment Deleted"
     redirect_to @article
   end
 
   def comment_params
-    params.require(:comment).permit(:author_name, :author_email, :article_id, :user_id, :body)
+    params.require(:comment).permit(:author_name, :author_email, :user_id, :body)
   end
 end

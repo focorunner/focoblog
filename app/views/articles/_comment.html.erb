@@ -8,18 +8,20 @@
     
     <!-- <span class="comment-author"><%#= comment.author_name %> </span> -->
     <small><%= comment.created_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %></small>
-  </div>
-  <p class="comment-body"><%= comment.body %></p>
-  <div class="text-right">
+
     <small >
     <% if logged_in? && current_user.admin? %>
-       | <%= link_to 'Edit', edit_article_comment_path(comment.article, comment) %>
+       | <%= link_to 'edit', edit_article_comment_path(comment.article, comment) %>
        | <%= link_to 'delete', [comment.article, comment],
                 method: :delete,
                 data: { confirm: 'Delete Comment... Are you sure?' } %>
     <% end %>
   </small>
+
   </div>
+
+  <p class="comment-body"><%= comment.body %></p>
+  
 </div>
 
 <% end %>

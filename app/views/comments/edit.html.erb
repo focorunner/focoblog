@@ -1,10 +1,15 @@
 <% provide(:title, "Edit Comment") %>
 
 <main class="row">
+  <h1 class="center">Edit Comment</h1>
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [ @article, @comment ] do |f| %>
       <%= f.text_area :body, placeholder: "Comment text", class: "form-control" %>
       <%= f.submit 'Submit', class: "btn btn-primary" %>
+      <div id="form_reset" class="center">
+        <%= button_tag "Reset", type: :reset, class: 'center btn btn-default' %>
+        <small><%= link_to 'Cancel', :back %></small>
+      </div>
     <% end %>
   </div>
 </main>
