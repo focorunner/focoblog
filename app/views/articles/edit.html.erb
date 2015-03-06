@@ -4,13 +4,9 @@
   <article class="col-md-8 col-md-offset-2">
   <%= form_for(@article) do |f| %>
 
-    <ul>
-    <% @article.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-    </ul>
+  <%= render 'fields', f: f %>
 
-<%= render 'form', f: f %>
+  <%= f.submit "Update Article", class: 'btn btn-primary' %>
 
   <% end %>
   </article>

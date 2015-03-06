@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @comment = @article.comments.new
+    @comment = Comment.new
   end
 
   def new
@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
-    #@article = Article.new(article_params)
     if @article.save
       flash[:success] = "Article Created"
       redirect_to @article
@@ -33,7 +32,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Article Updated"
       redirect_to @article
     else
-      render 'show'
+      render 'edit'
     end
   end
 

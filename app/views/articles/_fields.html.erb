@@ -1,4 +1,6 @@
-<div class="article_form">
+  <div class="article_form">
+    <%= render 'shared/error_messages', target: @article %>
+
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
 
@@ -7,6 +9,4 @@
 
     <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list %>
-
-    <%= f.submit "Update Article", class: 'btn btn-primary' %>
-</div>
+  </div>
