@@ -8,6 +8,11 @@
 
   <%= f.submit "Create Article", class: 'btn btn-primary' %>
 
+  <div id="form_reset" class="center">
+    <%= button_tag "Reset", type: :reset, class: 'center btn btn-default' %>
+    <small><%= link_to 'Cancel', :back %></small>
+  </div>
+
   <% end %>
   </article>
 </main>

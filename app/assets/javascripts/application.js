@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require_tree .
 
+$("div.navbar-fixed-top").autoHidingNavbar();
