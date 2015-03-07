@@ -2,16 +2,21 @@
 
 <main class="row">
     <h1>All Tags</h1>
-  <section class="col-md-8"
-      <div class="tags">
-        <% if @tags.present? %>
-          <small>
-            <% @tags.each do |tag| %>
-              <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+  <section class="col-md-12">
+    <div class="tags">
+      <% if @tags.present? %>
+        <small>
+          <% @tags.each do |tag| %>
+            <%= link_to tag.articles.length, tag_path(tag) %>
+            <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+            <% if logged_in? && current_user.admin %>
+              <%= link_to 'del', tag_path(tag), method: :delete, style: "margin-right: 20px",
+                          data: { confirm: 'Delete Tag... Are you sure?' } %><br>
             <% end %>
-          </small>
-        <% end %>
-      </div>
+          <% end %>
+        </small>
+      <% end %>
+    </div>
   </section>
 </main>
 
