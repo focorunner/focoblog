@@ -15,7 +15,9 @@ User Authentication is in place, with 2-level authorization (user/admin). Author
 ### Gravatars (User, Article & Comment Authors)
 If a user user uses gravatar with their registered email address, the gravatar image can be used in page views easily. For example, the following embedded ruby will give a 50px gravatar image:
 
+~~~Erb
     <%= gravatar_for User.first, size: 50 %>
+~~~
 
 ### Comments 
 Comments are functional, and require comment to be logged in for now, so to comment they must have or create an account. This is the pretty secure. In the future I plan to open this up somewhat, and offer non-users to comment with "valid" email address and captcha. These comments will not be displayed until approved by an admin user.
@@ -24,13 +26,20 @@ Comments are functional, and require comment to be logged in for now, so to comm
 The ability to add custom tags to articles is now functional, including the ability to click on tag buttons under article titles to access a list of articles with the selected tag. All tags are also visible in a tag index view, in alphabetical order, but no links are yet added, because I haven't decided on the best place for them. It will likely be in an expanding list under "Articles" on the top navbar, but I am considering the footer, or may possibly simply add the top 25 tags in a cluster in the aside, with a "more" link to display the tag index.
 
 ### Views
-Styling relies heavily on Bootstrap 3, with some customization, and this includes the replacement of stock javascript delete confirmation with a Bootstrap/JQuery modal with some nifty coffeescript. Some of the views may have some repetitive code still, and as I find them while doing other work I will be moving that shared html/erb into partials (DRY principle). There is also some logic in the views, some of which should be moved to models with updated calls through the controller, and some of which should be in view helpers.  I'll also be refactoring those when I notice them.
+Styling relies heavily on Bootstrap 3, with some customization, and this includes the replacement of stock javascript delete confirmation with a Bootstrap/JQuery modal with some nifty coffeescript. I added edit and show support for a 255 character bio with a character countdown handled by a little jQuery function in the assets. 
+
+It still bothers me that there are some extra queries to the user table on article index and show pages that come from some erb in the aside. I should be able to remedy that in proper OO fashion with either a single query to retrieve a user record in the controller, so I plan to take care of that soon.
+
+Some of the views may have some repetitive code still, and as I find them while doing other work I will be moving that shared html/erb into partials (DRY principle). There is also some logic in the views, some of which should be moved to models with updated calls through the controller, and some of which should be in view helpers. I'll also be refactoring those when I notice them.
+
+### Statis Pages
+I added some text to the base About and Help pages. On the About page the text refers to the point of developing the blog and some of my influences. The Help page now offers some links to markdown resources useful for styling posts and comments. 
 
 ### Controllers
 The more completely integration Authorization/Authentication, some conditionals need to be added to controllers to ensure that actions can't be exploited via HTTP request - for increased security. The conditionals are easy to write, but that work should be test driven, so I haven't put a timeline on it yet.
 
 ### Models
-Some of the model relationships need a little work, and that should facilitate some simpler coding in the controllers and views, and also add some dependencies of articles and comments on existence of the users that created them (dependent delete).  
+Some of the model relationships need a little work, and that should facilitate some simpler coding in the controllers and views, and also add some dependencies of articles and comments on existence of the users that created them (dependent delete). I added a bio field to the User model. 
 
 
 ## Next Priorities
