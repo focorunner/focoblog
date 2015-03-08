@@ -6,6 +6,16 @@
 <%= f.label :email %>
 <%= f.email_field :email, class: 'form-control' %>
 
+<div id="bio">
+  <%= f.label :bio %>
+  <%= f.text_area :bio, class: 'form-control countdown', maxlength: "255" %>
+  <div class="text-right ">
+    <small>
+      <span class='counter_msg text-danger'></span>
+    </small>
+  </div>
+</div>
+
 <%= f.label :password %>
 <%= f.password_field :password, class: 'form-control' %>
 
