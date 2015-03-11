@@ -5,12 +5,8 @@
     <ul id="articles" class="list-unstyled">   
       <% @articles.each do |article| %>
         <li>
-          <div>
             <h3><%= link_to article_title(article), article_path(article) %></h3>
-            <span>
               <%#= truncate(strip_tags(article.body), length: 90) { link_to "continue", article } %>
-            </span>
-            </div>
           <small>
             Created <%= article.created_at.strftime("%B %d, %Y") %> | 
             Last Updated <%= article.updated_at.strftime("%B %d, %Y") %>
