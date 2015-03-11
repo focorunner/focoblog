@@ -32,6 +32,8 @@ It still bothers me that there are some extra queries to the user table on artic
 
 Some of the views may have some repetitive code still, and as I find them while doing other work I will be moving that shared html/erb into partials (DRY principle). There is also some logic in the views, some of which should be moved to models with updated calls through the controller, and some of which should be in view helpers. I'll also be refactoring those when I notice them.
 
+Markdown saved in articles and comments is now converted to HTML by the Kramdown plugin when rendering article show views, so articles can be styled nicely using valid Markdown. I added, then removed some javascript that inserted a different types of markdown into textareas (markdown-toolbar gem). I like the look and insert capability, and extensibility, but this gen was coded to update the value of the textarea directly, not using browser actions, so there was no simple way to undo the insert. I'll revisit when I either write my own solution or find another compact library with undo/redo functionality. 
+
 ### Statis Pages
 I added some text to the base About and Help pages. On the About page the text refers to the point of developing the blog and some of my influences. The Help page now offers some links to markdown resources useful for styling posts and comments. 
 
