@@ -7,12 +7,11 @@
         <li>
             <h3><%= link_to article_title(article), article_path(article) %></h3>
               <%#= truncate(strip_tags(article.body), length: 90) { link_to "continue", article } %>
-          <small>
+          <div>
+            <small>
             Created <%= article.created_at.strftime("%B %d, %Y") %> | 
-            Last Updated <%= article.updated_at.strftime("%B %d, %Y") %>
-          </small>
-          <div class="text-right">
-            <small><%= pluralize(article.comments.count, "comment") %>
+            Last Updated <%= article.updated_at.strftime("%B %d, %Y") %> | 
+            <%= pluralize(article.comments.count, "comment") %>
             <% if logged_in? && current_user.admin? %>
                | <%= link_to 'Edit', edit_article_path(article) %> | 
               <%= link_to 'Delete', article_path(article),
