@@ -41,6 +41,8 @@ The more completely integration Authorization/Authentication, some conditionals 
 ### Models
 Some of the model relationships need a little work, and that should facilitate some simpler coding in the controllers and views, and also add some dependencies of articles and comments on existence of the users that created them (dependent delete). I added a bio field to the User model. 
 
+### Heroku
+The blog is now set up and deployed on heroku, piggybacking on heroku's ssl.
 
 ## Next Priorities
 **Higher Priority**
@@ -67,7 +69,7 @@ Some of the model relationships need a little work, and that should facilitate s
 Rails user authentication based on parts of [*Ruby on Rails Tutorial: Learn Web Development with Rails* (http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/).
 
 ## Production Server Configuration
-The production section of the gemfile is set for heroku deploy, but heroku documentation should be followed to add appropriate gems and configuration for a real production-class server and SSL support (e.g., Unicorn, Puma).
+I have added the Puma gem, and coniguration file, and in the production environment configuration file, I've also turned on SSL. If you deploy to Heroku, this allows immediate testing over SSL.
 
 ## Production Mail Deploy
-If you are deploying to heroku or a similar service, in order for account verification and password reset emails to be sent, you'll likely need to set up an account with a transactional email service, and use your application host's documentation for including their add-on and configuring your app to use it. Heroku has add-on's for Sendgrid and Mandrill, both of which have a free level of service you can start with.
+The blog is currently configured to use Mandrill for mail in production. To complete setup, you'll need to follow the steps indicated in Heroku's Mandrill documentation to install the plugin for the app on their service. The process for setting up for Sendgrid is similar, and Heroku has instructions for that up as well. For that, you'll need to edit some of the files I currently have set up for Mandrill.
