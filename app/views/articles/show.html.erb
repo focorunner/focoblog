@@ -37,18 +37,22 @@
       </small>
     </div>
 
-    <div id="comments">      
-      <h3>Comments</h3>
-        <%= render 'comment' %>
-      <div class="panel panel-default">
-          <% if logged_in? %>
-            <%= render partial: 'comments/form' %>
-          <% else %>
-            <div class="center"><%= link_to 'Log in', login_path %> to add comments.</div>
-          <% end %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-sm-12">
+        <div id="comments">      
+          <h3>Comments</h3>
+            <%= render 'comment' %>
+          <div class="panel panel-default">
+              <% if logged_in? %>
+                <%= render partial: 'comments/form' %>
+              <% else %>
+                <div class="center"><%= link_to 'Log in', login_path %> to add comments.</div>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
-
+     
     <br>
     <div class="back_link">
         <small>
