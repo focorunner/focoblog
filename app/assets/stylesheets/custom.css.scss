@@ -280,8 +280,23 @@ label {
   h2 {
     margin-bottom: 20px;
   }
+  .highlighter-coderay {
+    min-width: 100%;
+    overflow-y: scroll;
+    border-right: 1px solid #cccccc;
+  }
   .line-numbers {
     margin-right: 10px;
+    a {
+      color: $gray-lighter;
+    }
+    pre {
+      color: yellow;
+      background-color: $gray;
+    }
+  }
+  .code pre {
+    background-color: #e5e5e5;
   }
 }
 
