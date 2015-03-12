@@ -353,6 +353,15 @@ label {
   }
 }
 
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  #comments {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 /* Tags */
 
 .tags, .md_editor {
