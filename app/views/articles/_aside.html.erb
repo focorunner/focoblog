@@ -6,14 +6,12 @@
             <h4>Author</h4>
             <%= gravatar_for @article.user, size: 100 %>
             <h3><%= @article.user.name %></h3>
-            <br>
-            <p><%= @article.user.bio %>
+            <div class="bio"><%= @article.user.bio %>
           <% else %>
             <h4>Owner</h4>
             <%= gravatar_for User.first, size: 100 %>
             <h3><%= User.first.name %></h3>
-            <br>
-            <div><%= User.first.bio %></div>
+            <div class="bio"><%= User.first.bio %></div>
           <% end %>
         </div>
       </section>

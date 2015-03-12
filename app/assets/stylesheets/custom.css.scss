@@ -161,6 +161,9 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+    .bio {
+      font-size: 0.9em;
+    }
   }
 }
 
@@ -276,7 +279,9 @@ label {
     margin-bottom: 20px;
   }
   .line-numbers {
-    margin-right: 10px;
+  }
+  .code {
+    width: 100%;
   }
 }
 
