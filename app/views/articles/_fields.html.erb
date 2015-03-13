@@ -5,7 +5,9 @@
     <%= f.text_field :title, class: 'form-control' %>
 
     <%= f.label :body %>
-    <%= render 'toolbar' %>
+    <% if !request.user_agent.include? 'MSIE' %>
+      <%= render 'toolbar' %>
+    <% end %>
     <%= f.text_area :body, class: 'form-control' %>
 
     <%= f.label :tag_list %><br />

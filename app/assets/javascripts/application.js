@@ -160,6 +160,7 @@ function insertText(element_name, before_text, after_text, default_text) {
   var element = document.getElementsByName(element_name)[0];
 
   //IE specific patch: IE 9 etc.
+  //if if (/MSIE[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
   if (selection = document.selection) {
     IE_insertText(element, selection, before_text, after_text, default_text);
   //modern browsers
