@@ -284,6 +284,10 @@ label {
   h2 {
     margin-bottom: 20px;
   }
+  img {
+    max-width: 100%;
+    overflow-y: scroll;
+  }
   .highlighter-coderay {
     min-width: 100%;
     overflow-y: scroll;
