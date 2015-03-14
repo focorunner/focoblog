@@ -5,11 +5,10 @@
     <%= f.text_field :title, class: 'form-control' %>
 
     <%= f.label :body %>
-    <% if !request.user_agent.include?('Trident') %>
-      <%= render 'toolbar' %>
-    <% end %>
+    <%= render 'toolbar' %>
     <%= f.text_area :body, class: 'form-control' %>
 
     <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list %>
   </div>
+

@@ -298,6 +298,7 @@ label {
   .line-numbers {
     margin-right: 10px;
     text-align: right;
+    width: 40px;
     a {
       color: $gray-lighter;
     }
@@ -366,5 +367,11 @@ label {
   .btn-default {
     padding: 0px 5px;
     margin: 4px 0px;
+    min-width: 20px;
+    background-color: $gray-lighter;
+    &:hover {
+      background-color: $gray;
+      color: $gray-lighter;
+    }
   }
 }
