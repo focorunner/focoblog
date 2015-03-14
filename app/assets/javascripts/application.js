@@ -31,105 +31,48 @@ $(document).on('focus keypress', '.countdown', function (e) {
 var $textBox;
 
 var ready = (function () {
-    $('#add_strong').on("click", function(e) {
+  var theButtons = [
+    { id: "#add_strong", before: "**", after: "**"},
+    { id: "#add_em", before: "*", after: "*"},
+    { id: "#add_h1", before: "\n# ", after: "\n"},
+    { id: "#add_h2", before: "\n## ", after: "\n"},
+    { id: "#add_h3", before: "\n### ", after: "\n"},
+    { id: "#add_h4", before: "\n#### ", after: "\n"},
+    { id: "#add_h5", before: "\n##### ", after: "\n"},
+    { id: "#add_h6", before: "\n###### ", after: "\n"},
+    { id: "#add_paragraph", before: "\n", after: "\n\n"},
+    { id: "#add_blockquote", before: "\n> ", after: "\n"},
+    { id: "#add_unord_list", before: "\n+ ", after: "\n"},
+    { id: "#add_ord_list", before: "\n1. ", after: "\n"},
+    { id: "#add_link", before: "[", after: "](link_url)"},
+    { id: "#add_url_link", before: "<", after: ">"},
+    { id: "#add_img", before: "![", after: "](image_url)"},
+    { id: "#add_inline_code", before: "```", after: "```"},
+    { id: "#add_fenced_code", before: "\n~~~ ruby\n", after: "\n~~~\n"}
+  ];
+
+  theButtons.forEach( function (button) {
+    $(button.id).on('click', function (e) {
       e.preventDefault();
-      insertText("**", "**", "bold");
+      insertText(button.before, button.after);
     });
+  });
 
-    $('#add_em').on("click", function(e) {
-      e.preventDefault();
-      insertText("*", "*", "italic");
-    });
+  $textBox = $("#article_body");
 
-    $('#add_h1').on('click', function (e) {
-      e.preventDefault();
-      insertText("\n# ", "\n", "H1");
-    });
+  function saveSelection() {
+      $textBox.data("lastSelection", $textBox.getSelection());
+  }
 
-    $('#add_h2').on("click", function (e) {
-      e.preventDefault();
-      insertText("\n## ", "\n", "H2");
-    });
+  $textBox.focusout(saveSelection);
 
-    $('#add_h3').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n### ", "\n", "H3");
-    });
-
-    $('#add_h4').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n#### ", "\n", "H4");
-    });
-
-    $('#add_h5').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n##### ", "\n", "H5");
-    });
-
-    $('#add_h6').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n###### ", "\n", "H6");
-    });
-
-    $('#add_paragraph').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n", "\n\n", "paragraph");
-    });
-
-    $('#add_blockquote').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n> ", "\n", "blockquote");
-    });
-
-    $('#add_unord_list').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n* ", "\n", "element");
-    });
-
-    $('#add_ord_list').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n1 ", "\n", "element");
-    });
-
-    $('#add_link').on("click", function(e) {
-      e.preventDefault();
-      insertText("[", "](link_url)", "link_name");
-    });
-
-    $('#add_url_link').on("click", function(e) {
-      e.preventDefault();
-      insertText("<", ">", "link_name");
-    });
-
-    $('#add_img').on("click", function(e) {
-      e.preventDefault();
-      insertText("![", "](image_url)");
-    });
-
-    $('#add_inline_code').on("click", function(e) {
-      e.preventDefault();
-      insertText("```", "```");
-    });
-
-    $('#add_fenced_code').on("click", function(e) {
-      e.preventDefault();
-      insertText("\n~~~ ruby\n", "\n~~~\n");
-    });
-    $textBox = $("#article_body");
-
-    function saveSelection() {
-        $textBox.data("lastSelection", $textBox.getSelection());
-    }
-
-    $textBox.focusout(saveSelection);
-
-    $textBox.bind("beforedeactivate", function () {
-        saveSelection();
-        $textBox.unbind("focusout");
-    });
+  $textBox.bind("beforedeactivate", function () {
+      saveSelection();
+      $textBox.unbind("focusout");
+  });
 });
 
-function insertText(before_text, after_text, default_text) {
+function insertText(before_text, after_text) {
     $textBox.focus();
     if(typeof $textBox.data('lastSelection') == "undefined") {
       $textBox.data("lastSelection", $textBox.getSelection());

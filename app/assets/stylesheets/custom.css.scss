@@ -288,27 +288,32 @@ label {
     max-width: 100%;
     overflow-y: scroll;
   }
-  .highlighter-coderay {
-    min-width: 100%;
-    overflow-y: scroll;
+  blockquote {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    color: $gray-dark
   }
   .CodeRay {
     min-width: 100%;
-  }
-  .line-numbers {
-    margin-right: 10px;
-    text-align: right;
-    width: 40px;
-    a {
-      color: $gray-lighter;
+    .highlighter-coderay {
+      min-width: 100%;
+      overflow-y: scroll;
     }
-    pre {
-      color: yellow;
-      background-color: $gray;
+    .line-numbers {
+      margin-right: 10px;
+      text-align: right;
+      width: 40px;
+      a {
+        color: $gray-lighter;
+      }
+      pre {
+        background-color: $gray;
+      }
     }
-  }
-  .code pre {
-    background-color: #e5e5e5;
+    .code pre {
+      background-color: #e5e5e5;
+    }
   }
 }
 
