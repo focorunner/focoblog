@@ -17,20 +17,10 @@
 //= require_tree .
 
 
-$(document).on('focus keypress', '.countdown', function (e) {
-    
-    var $this = $(this);
-    var msgSpan = $this.parents('div').find('.counter_msg');
-    var ml = parseInt($this.attr('maxlength'));
-    var length = this.value.length;
-    var msg = ml - length + ' remaining';
-
-    msgSpan.html(msg);
-});
-
 var $textBox;
 
 var ready = (function () {
+
   var theButtons = [
     { id: "#add_strong", before: "**", after: "**"},
     { id: "#add_em", before: "*", after: "*"},

@@ -1,4 +1,13 @@
 $ ->
+  $(document).on 'focus keyup', '.countdown', (e) ->
+    $this = $(this)
+    msgSpan = $this.parents('div').find('.counter_msg')
+    ml = parseInt($this.attr('maxlength'))
+    length = @value.length
+    msg = ml - length + ' remaining'
+    msgSpan.html msg
+    return
+
   $.rails.allowAction = (link) ->
     return true unless link.attr('data-confirm')
     $.rails.showConfirmDialog(link) 
