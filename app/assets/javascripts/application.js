@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-
 var $textBox;
 
 var ready = (function () {
@@ -73,5 +72,4 @@ function insertText(before_text, after_text) {
     $textBox.surroundSelectedText(before_text, after_text);
 }
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).on('ready page:load', ready);

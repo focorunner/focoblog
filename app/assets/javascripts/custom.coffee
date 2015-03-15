@@ -37,3 +37,21 @@ $ ->
            """
     $(html).modal()
     $('#confirmationDialog .confirm').on 'click', -> $.rails.confirmed(link)
+
+ready = ->
+  $('#show_preview').bind 'click', ->
+    title = $('input#article_title').val()
+    body = $('textarea#article_body').val()
+    $('#myModal').modal 'hide'
+    $.ajax({
+      type: "POST",
+      url: "/previews/show",
+      data: { preview: { title: title, body: body } },
+      success:(data) ->
+        return false
+      error:(data) ->
+        return false
+    })
+    return false
+
+$(document).on 'ready page:load', ready

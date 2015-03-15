@@ -380,3 +380,16 @@ label {
     }
   }
 }
+
+#myModal {
+  display:none;
+  .modal-dialog{
+    width: 768px;
+  }
+  .modal-title{
+    border-bottom: 1px solid $gray-medium-light;
+  }
+  .modal-body{
+    padding-top: 0px;
+  }
+}
