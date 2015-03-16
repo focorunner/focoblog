@@ -7,8 +7,7 @@
       <% if @tags.present? %>
         <small>
           <% @tags.each do |tag| %>
-            <%= link_to tag.articles.length, tag_path(tag) %>
-            <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+            <%= link_to "#{tag.name} (#{tag.articles.length})", tag_path(tag), class: "btn btn-default" %>
             <% if logged_in? && current_user.admin %>
               <%= link_to 'del', tag_path(tag), method: :delete, style: "margin-right: 20px",
                           data: { confirm: 'Delete Tag... Are you sure?' } %><br>

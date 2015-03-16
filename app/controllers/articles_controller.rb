@@ -9,7 +9,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    if logged_in? && current_user.admin
+      @article = Article.new
+    else
+      flash[:danger] = "Not Authorized."
+      redirect_to root_url
+    end
   end
 
   def create
@@ -23,7 +28,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    if logged_in? && current_user.admin
+      @article = Article.find(params[:id])
+    else
+      flash[:danger] = "Not Authorized."
+      redirect_to root_url
+    end
   end
 
   def update
@@ -37,9 +47,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    Article.find(params[:id]).destroy
-    flash[:success] = "Article Deleted"
-    redirect_to articles_url
+      Article.find(params[:id]).destroy
+      flash[:success] = "Article Deleted"
+      redirect_to articles_url
   end
 
   private

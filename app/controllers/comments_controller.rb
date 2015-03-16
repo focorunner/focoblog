@@ -11,8 +11,13 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:id])
-    @article = Article.find(params[:article_id])
+    if logged_in?
+      @comment = Comment.find(params[:id])
+      @article = Article.find(params[:article_id])
+    else
+      flash[:danger] = "Not Authorized."
+      redirect_to root_url
+    end
   end
 
   def update
