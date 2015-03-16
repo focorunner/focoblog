@@ -74,6 +74,7 @@ h3 {
 p {
   font-size: 1.0em;
   line-height: 1.4em;
+  margin-bottom: 1.2em; 
 }
 
 /* header */
@@ -282,7 +283,7 @@ label {
   height: 100%;
   max-width: 100%;
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 0.5em;
   }
   img {
     max-width: 100%;
@@ -292,13 +293,14 @@ label {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #e5e5e5;
-    color: $gray-dark
+    color: $gray-dark;
   }
   .highlighter-coderay {
     min-width: 100%;
     overflow-y: scroll;
   }
   .CodeRay {
+    margin-bottom: 0.5em;
     min-width: 100%;
     .line-numbers {
       margin-right: 10px;
