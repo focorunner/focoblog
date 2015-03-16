@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'previews/show'
+  post 'previews/create'
 
   root                'articles#index'
   get    'help'    => 'static_pages#help'

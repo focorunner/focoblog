@@ -1,5 +1,5 @@
 class PreviewsController < ApplicationController
-  def show
+  def create
     respond_to do |format|
       format.js
     end

@@ -45,7 +45,7 @@ ready = ->
     $('#myModal').modal 'hide'
     $.ajax({
       type: "POST",
-      url: "/previews/show",
+      url: "/previews/create",
       data: { preview: { title: title, body: body } },
       success:(data) ->
         return false
