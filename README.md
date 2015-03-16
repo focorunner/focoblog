@@ -1,6 +1,6 @@
 # Focoblog
 
-This is a Rails-based blog that I am building out for my own use, but anyone who wants to fork and do with it what they will.
+This is a Rails-based blog application that I am building for my own use, but anyone who wants to fork and do with it what they will.
 
 Using: **Ruby 2.2.0**, **Rails 4.2.0**
 
@@ -49,7 +49,7 @@ repeatedly. Here's a picture of that as well:
 
 Of course, at this time, all of the editing and preview capabilities are 
 allowed only for the admin level users. I still need to add an "author" access 
-levellevel
+level
 
 ### Static Pages
 I added some text to the base About and Help pages. On the About page the text refers to the point of developing the blog and some of my influences. The Help page now offers some links to markdown resources useful for styling posts and comments. 
