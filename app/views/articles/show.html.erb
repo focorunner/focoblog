@@ -22,6 +22,10 @@
             <% else %>
               none
             <% end %>
+            <% if logged_in? && current_user.admin? %>
+<%= render 'edit_delete' %>
+            <% end %>
+            | by <strong><%= @article.user.name %></strong>
           </small>
       </div>  
       <p><%= kramdown @article.body %></p>
@@ -29,10 +33,7 @@
         Created <%= @article.created_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %> | 
         Last Updated <%= @article.updated_at.strftime("%-m/%-d/%Y %-I:%M%p (%Z)") %>
         <% if logged_in? && current_user.admin? %>
-           | <%= link_to 'Edit', edit_article_path %>
-           | <%= link_to 'Delete', article_path,
-                    method: :delete,
-                    data: { confirm: 'Delete Article... Are you sure?' } %>
+<%= render 'edit_delete' %>
         <% end %>
       </small>
     </div>
@@ -43,11 +44,11 @@
           <h3>Comments</h3>
             <%= render 'comment' %>
           <div class="panel panel-default">
-              <% if logged_in? %>
-                <%= render partial: 'comments/form' %>
-              <% else %>
-                <div class="center"><%= link_to 'Log in', login_path %> to add comments.</div>
-              <% end %>
+            <% if logged_in? %>
+              <%= render partial: 'comments/form' %>
+            <% else %>
+              <div class="center"><%= link_to 'Log in', login_path %> to add comments.</div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -55,11 +56,11 @@
      
     <br>
     <div class="back_link">
-        <small>
-          <%= link_to articles_path do %>
-            <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
-          <% end %>
-        </small>
+      <small>
+        <%= link_to articles_path do %>
+          <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
+        <% end %>
+      </small>
     </div>
 
   </article>
