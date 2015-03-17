@@ -20,6 +20,15 @@ var $textBox;
 
 var ready = (function () {
 
+  $('#myAffix').affix({
+    offset: {
+      top: 100,
+      bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true))
+      }
+    }
+  })
+
   var theButtons = [
     { id: "#add_strong", before: "**", after: "**"},
     { id: "#add_em", before: "*", after: "*"},

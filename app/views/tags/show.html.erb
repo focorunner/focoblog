@@ -1,10 +1,10 @@
 <% provide(:title, "Tag: #{@tag.name}") %>
 
-<main class="row">
+<main>
   <h1>Articles Tagged with "<%= @tag.name.capitalize %>"</h1>
   <section class="col-md-8">
 
 <%= render 'articles/articles' %>
-
+    
   </section>
 </main>
