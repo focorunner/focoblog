@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 1.8em;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 20px;
 
 }
@@ -67,7 +67,7 @@ h1 {
 h2 {
   font-size: 1.4em;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h3 {
@@ -278,12 +278,14 @@ label {
   }
 }
 
-/* Articles Index */
+/* Articles Views */
 
 #articles {
   list-style: none;
   margin: 0;
   h2 {
+    font-weight: normal;
+    color: $gray-dark;
     margin-bottom: 0;
   }
   li {
@@ -292,16 +294,20 @@ label {
   }
 }
 
-/* Article Show */
 
 #article, #comments {
   height: 100%;
   max-width: 100%;
   h1 {
     margin-bottom: 0.1em;
+    font-weight: bold;
+    &.article_title {
+      font-weight: normal;
+    }
   }
   h2 {
     margin-bottom: 0.5em;
+    font-weight: bold;
   }
   img {
     max-width: 100%;
