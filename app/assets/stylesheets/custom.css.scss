@@ -77,6 +77,10 @@ p {
   margin-bottom: 1.2em; 
 }
 
+ul, ol {
+  margin-bottom: 1.2em;
+}
+
 /* header */
 
 header {
@@ -282,6 +286,9 @@ label {
 #article, #comments {
   height: 100%;
   max-width: 100%;
+  h1 {
+    margin-bottom: 0.1em;
+  }
   h2 {
     margin-bottom: 0.5em;
   }

@@ -1,7 +1,7 @@
 <% provide(:title, @article.title) %>
 
 <main class="row">
-  <article class="col-md-8 col-sm-8">
+  <div class="col-md-8 col-sm-8">
     <div class="back_link">
         <small>
           <%= link_to articles_path do %>
@@ -10,9 +10,13 @@
         </small>
     </div>
     <div id="article" style="border-bottom: 1px solid black;">
-      <h1><%= article_title(@article) %></h1>
+      <h1 class="article_title"><%= article_title(@article) %></h1>
       <div class="tags">
           <small>
+            by <strong><%= @article.user.name %></strong> 
+            <% if logged_in? && current_user.admin? %>
+<%= render 'edit_delete' %>
+            <% end %> | 
             Tags:
             <% if @article.tags.present? %>
               <% @article.tags.each do |tag| %>
@@ -21,10 +25,6 @@
             <% else %>
               none
             <% end %>
-            <% if logged_in? && current_user.admin? %>
-<%= render 'edit_delete' %>
-            <% end %>
-            | by <strong><%= @article.user.name %></strong>
           </small>
       </div>  
       <p><%= kramdown @article.body %></p>
@@ -62,7 +62,7 @@
       </small>
     </div>
 
-  </article>
+  </div>
 
   <%= render 'aside' %>
   

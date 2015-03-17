@@ -5,8 +5,7 @@
     <ul id="articles" class="list-unstyled">   
       <% @articles.each do |article| %>
         <li>
-            <h3><%= link_to article_title(article), article_path(article) %></h3>
-              <%#= truncate(strip_tags(article.body), length: 90) { link_to "continue", article } %>
+          <h3><%= link_to article_title(article), article_path(article) %></h3>
           <div>
             <small>
             Created <%= article.created_at.strftime("%B %d, %Y") %> | 
