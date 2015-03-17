@@ -4,15 +4,23 @@
   <h1>All Tags</h1>
   <div class="tags">
     <% if @tags.present? %>
-      <small>
-        <% @tags.each do |tag| %>
-          <%= link_to "#{tag.name} (#{tag.articles.length})", tag_path(tag), class: "btn btn-default" %>
-          <% if logged_in? && current_user.admin %>
-            <%= link_to 'del', tag_path(tag), method: :delete, style: "margin-right: 20px",
-                        data: { confirm: 'Delete Tag... Are you sure?' } %><br>
-          <% end %>
-        <% end %>
-      </small>
+      <table style="width: 100%;">
+      <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td class="text-right" style="width: 15%;border-right: 1px solid black;">
+            <small>
+              <%= link_to "#{tag.name.capitalize} (#{tag.articles.length})", tag_path(tag), class: "btn btn-sm btn-info" %>
+              <% if logged_in? && current_user.admin %>
+                <%= link_to 'del', tag_path(tag), method: :delete, style: "margin-right: 20px",
+                            data: { confirm: 'Delete Tag... Are you sure?' } %>
+              <% end %>
+            </small>
+          </td>
+          <td style="max-width: 80%;overflow: auto;"><div style="width:<%= tag.articles.count * 10 %>px;background-color: blue;height: 15px;"></div></td>
+        </tr>
+      <% end %>
+      </tbody></table>
     <% end %>
   </div>
 </main>

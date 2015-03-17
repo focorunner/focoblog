@@ -275,9 +275,12 @@ label {
 #articles {
   list-style: none;
   margin: 0;
+  h2 {
+    margin-bottom: 0;
+  }
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 5px 0;
   }
 }
 
@@ -326,24 +329,15 @@ label {
   }
 }
 
-/* Pagination */
-
-.pagination {
-  font-size: 0.95em;
-  margin: 0px;
-  li a {
-    color: $gray;
-    border: none;
-    padding: 0px 6px;
+.article-meta, .md_editor {
+  .btn-info {
+    padding: 0px 5px;
+    margin: 4px 0px;
+    min-width: 20px;
     &:hover {
-      color: $gray-darker;
-    }
-  }
-  .active a {
-    border-radius: 50%;
-    background-color: $gray;
-    &:hover {
-      background-color: $gray-darker;
+      background-color: $gray;
+      border-color: $gray;
+      color: $gray-lighter;
     }
   }
 }
@@ -374,18 +368,24 @@ label {
   }
 }
 
+/* Pagination */
 
-/* Tags */
-
-.tags, .md_editor {
-  .btn-default {
-    padding: 0px 5px;
-    margin: 4px 0px;
-    min-width: 20px;
-    background-color: $gray-lighter;
+.pagination {
+  font-size: 0.95em;
+  margin: 0px;
+  li a {
+    color: $gray;
+    border: none;
+    padding: 0px 6px;
     &:hover {
-      background-color: $gray;
-      color: $gray-lighter;
+      color: $gray-darker;
+    }
+  }
+  .active a {
+    border-radius: 50%;
+    background-color: $gray;
+    &:hover {
+      background-color: $gray-darker;
     }
   }
 }

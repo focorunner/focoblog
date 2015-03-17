@@ -11,19 +11,16 @@
     </div>
     <div id="article" style="border-bottom: 1px solid black;">
       <h1 class="article_title"><%= article_title(@article) %></h1>
-      <div class="tags">
+      <div class="article-meta">
           <small>
+            <% if @article.tags.present? %>
+              <% @article.tags.each do |tag| %>
+                <%= link_to tag.name.capitalize, tag_path(tag), class: "btn btn-sm btn-info" %>
+              <% end %>
+            <% end %>
             by <strong><%= @article.user.name %></strong> 
             <% if logged_in? && current_user.admin? %>
 <%= render 'edit_delete' %>
-            <% end %> | 
-            Tags:
-            <% if @article.tags.present? %>
-              <% @article.tags.each do |tag| %>
-                <%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
-              <% end %>
-            <% else %>
-              none
             <% end %>
           </small>
       </div>  
