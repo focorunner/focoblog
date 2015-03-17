@@ -42,6 +42,7 @@ ready = ->
   $('#show_preview').bind 'click', ->
     title = $('input#article_title').val()
     body = $('textarea#article_body').val()
+    ###alert(body.replace(/(\\+)[n]/g, '\\n'))###
     $('#myModal').modal 'hide'
     $.ajax({
       type: "POST",

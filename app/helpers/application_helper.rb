@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def kramdown(text)
-    return sanitize Kramdown::Document.new(text, { coderay_line_numbers: :table }).to_html
+    return sanitize Kramdown::Document.new(text, { coderay_line_numbers: :table, parse_block_html: true }).to_html
   end
 
   def article_title(article)

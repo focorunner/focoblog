@@ -298,6 +298,7 @@ label {
   img {
     max-width: 100%;
     overflow-y: scroll;
+    margin-bottom: 0.5em;
   }
   blockquote {
     border: 1px solid #ccc;
@@ -305,32 +306,40 @@ label {
     background-color: #e5e5e5;
     color: $gray-dark;
   }
+  .panel-inset {
+    background-color: #ccc;
+    padding: 10px 20px 5px 20px;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+  }
   .highlighter-coderay {
     min-width: 100%;
     overflow-y: scroll;
   }
-  .CodeRay {
-    margin-bottom: 0.5em;
-    min-width: 100%;
-    .line-numbers {
-      margin-right: 10px;
-      text-align: right;
-      width: 40px;
-      a {
-        color: $gray-lighter;
-      }
-      pre {
-        background-color: $gray;
-      }
+}
+
+.CodeRay {
+  margin-bottom: 0.5em;
+  min-width: 100%;
+  .line-numbers {
+    margin-right: 10px;
+    text-align: right;
+    width: 40px;
+    a {
+      color: $gray-lighter;
     }
-    .code pre {
-      background-color: #e5e5e5;
+    pre {
+      background-color: $gray;
     }
+  }
+  .code pre {
+    background-color: #e5e5e5;
   }
 }
 
+
 .article-meta, .md_editor, .tags {
-  .btn-info {
+  .btn-info, .btn-default {
     padding: 0px 5px;
     margin: 4px 0px;
     min-width: 20px;
