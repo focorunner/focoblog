@@ -15,6 +15,10 @@
           <%= render 'fields', f: f %>
           <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
+  <div id="form_reset" class="center">
+    <%= button_tag "Reset", type: :reset, class: 'center btn btn-default' %>
+    <small><%= link_to 'Cancel', @user %></small>
+  </div>
 
       </div>
     </div>

@@ -9,13 +9,21 @@
   </div>
   <div class="col-md-4">
     <div class="text-left">
-      <p><strong>Name: </strong><%= @user.name %></p>
+      <p><strong>Name: </strong><%= @user.name %>
+        <%= "(Administrator)" if @user.admin %>
+      </p>
       <p><strong>Email: </strong><%= @user.email %></p>
       <p><%= @user.bio %></p>
     </div>
   </div>
   <div class="col-md-4 col-md-offset-4 center">
     <br>
-    <%= link_to 'Edit Profile', edit_user_path(@user) %>
+    <% if current_user.admin? && !@user.admin && !current_user?(@user) %>
+      <%= link_to "delete", @user, method: :delete,
+                                    data: { confirm: "Delete User... Are you sure?" } %>
+    <% end %>
+    <% if current_user?(@user) %>
+      | <%= link_to 'Edit Profile', edit_user_path(@user) %>
+    <% end %>
   <div>
 </main>

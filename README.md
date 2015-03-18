@@ -15,7 +15,7 @@ User Authentication is in place, with 2-level authorization (user/admin). Author
 ### Gravatars (User, Article & Comment Authors)
 If a user user uses gravatar with their registered email address, the gravatar image can be used in page views easily. For example, the following embedded ruby will give a 50px gravatar image:
 
-~~~Erb
+~~~ ruby
     <%= gravatar_for User.first, size: 50 %>
 ~~~
 
@@ -94,3 +94,29 @@ I have added the Puma gem, and coniguration file, and in the production environm
 
 ## Production Mail Deploy
 The blog is currently configured to use Mandrill for mail in production. To complete setup, you'll need to follow the steps indicated in Heroku's Mandrill documentation to install the plugin for the app on their service. The process for setting up for Sendgrid is similar, and Heroku has instructions for that up as well. For that, you'll need to edit some of the files I currently have set up for Mandrill.
+
+
+________
+This software is released under the MIT License
+
+###The MIT License (MIT)
+
+Copyright &copy; 2015 Mark Coleman
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

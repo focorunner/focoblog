@@ -8,11 +8,6 @@
           <h2 class="article_title"><%= link_to article_title(article), article_path(article) %></h2>
             <div class="article-meta">
               <small>
-                <% if article.tags.present? %>
-                  <% article.tags.each do |tag| %>
-                    <%= link_to tag.name.capitalize, tag_path(tag), class: "btn btn-sm btn-info" %>
-                  <% end %>
-                <% end %>
                 Published <%= article.created_at.strftime("%B %d, %Y") %> by <strong><%= article.user.name %></strong> | 
                 <%= comment_count(article.comments) %>
                 <% if logged_in? && current_user.admin? %>
@@ -20,6 +15,11 @@
                  | <%= link_to 'Delete', article_path(article),
                             method: :delete,
                             data: { confirm: 'Delete Article... Are you sure?' } %>
+                <% end %><br>
+                <% if article.tags.present? %>
+                  <% article.tags.each do |tag| %>
+                    <%= link_to tag.name.capitalize, tag_path(tag), class: "btn btn-sm btn-info" %>
+                  <% end %>
                 <% end %>
               </small>
             </div>
