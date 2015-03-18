@@ -6,4 +6,8 @@ module ArticlesHelper
       "No Comments"
     end
   end
+
+  def article_title(article)
+    strip_tags(article.title)
+  end
 end

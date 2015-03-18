@@ -1,7 +1,8 @@
 <% provide(:title, @article.title) %>
 
 <main class="row">
-  <div class="col-md-8 col-sm-12">
+  <!-- <div class="col-lg-8 col-md-9 col-sm-12"> -->
+  <div style="margin-left: 15px;width: 95%; max-width: 700px; float:left;">
     <div class="back_link">
         <small>
           <%= link_to articles_path do %>
@@ -33,6 +34,13 @@
         <% end %>
       </small>
     </div>
+    <div class="back_link" >
+      <small>
+        <%= link_to articles_path do %>
+          <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
+        <% end %>
+      </small>
+    </div>
 
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 col-xs-12">
@@ -51,13 +59,7 @@
     </div>
      
     <br>
-    <div class="back_link">
-      <small>
-        <%= link_to articles_path do %>
-          <i class="glyphicon glyphicon-arrow-left"></i> Back to Index
-        <% end %>
-      </small>
-    </div>
+
 
   </div>
 

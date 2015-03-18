@@ -8,8 +8,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    redirect_to root_url and return unless @user.activated?
+    if logged_in?
+      @user = User.find(params[:id])
+      redirect_to root_url and return unless @user.activated?
+    else
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
   end
 
   def new
