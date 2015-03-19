@@ -31,7 +31,7 @@ var ready = (function () {
 
   var theButtons = [
     { id: "#add_strong", before: "**", after: "**"},
-    { id: "#add_em", before: "*", after: "*"},
+    { id: "#add_em", before: "_", after: "_"},
     { id: "#add_h1", before: "\n# ", after: "\n"},
     { id: "#add_h2", before: "\n## ", after: "\n"},
     { id: "#add_h3", before: "\n### ", after: "\n"},

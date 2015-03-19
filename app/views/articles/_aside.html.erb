@@ -4,12 +4,12 @@
         <div>
           <% if @article.present? %>
             <h4>Author</h4>
-            <%= gravatar_for @article.user, size: 180 %>
+            <%= gravatar_for @article.user, size: 160 %>
             <h4><%= @article.user.name %></h4>
             <div class="bio"><%= @article.user.bio %>
           <% else %>
             <h4>Owner</h4>
-            <%= gravatar_for User.first, size: 180 %>
+            <%= gravatar_for User.first, size: 160 %>
             <h4><%= User.first.name %></h4>
             <div class="bio"><%= User.first.bio %></div>
           <% end %>
