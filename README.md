@@ -1,6 +1,6 @@
 # Focoblog
 
-This is a Rails-based blog application that I am building for my own use, but anyone who wants to fork and do with it what they will. It's functional, but not complete. Some features need to be built or fine tuned.
+This is a Rails-based blog application that I am building for my own use, but anyone is welsom to fork and do with it what they will. It's functional, but not complete. Some features need to be built or fine tuned.
 
 Using: **Ruby 2.2.0**, **Rails 4.2.0**
 
