@@ -1,7 +1,7 @@
 <% provide(:title, 'Article Index') %>
 
 <main class="row">
-  <div class="col-md-8 col-sm-12">
+  <div class="col-lg-8 col-md-9 col-sm-12">
   <h1>Article Index</h1>
     <div class="text-left">
       <%= (link_to "New Article", new_article_path, class: "btn btn-default") if logged_in? && current_user.admin? %>
