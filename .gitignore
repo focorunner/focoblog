@@ -19,3 +19,6 @@
 # Ignore Spring files.
 /spring/*.pid.env
 .env
+
+# Ignore RubyMine Project files.
+.idea
