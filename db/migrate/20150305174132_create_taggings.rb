@@ -6,7 +6,7 @@ class CreateTaggings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :taggings, :tags
-    add_foreign_key :taggings, :articles
+    add_foreign_key :taggings, :tags, on_delete: cascade
+    add_foreign_key :taggings, :articles, on_delete: cascade
   end
 end
