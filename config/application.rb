@@ -21,7 +21,8 @@ module Fococoder
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.time_zone = 'Mountain Time (US & Canada)' 
+    config.time_zone = 'Mountain Time (US & Canada)'
+    config.app_name = "FoCoCoder"
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

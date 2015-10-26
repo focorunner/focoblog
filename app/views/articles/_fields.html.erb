@@ -1,5 +1,6 @@
   <div class="article_form">
-    <%= render 'shared/error_messages', target: @article %>
+
+    <%= render 'shared/error_messages', target: f.object %>
 
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>

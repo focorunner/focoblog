@@ -16,7 +16,7 @@
                             method: :delete,
                             data: { confirm: 'Delete Article... Are you sure?' } %>
                 <% end %><br>
-                <% if article.tags.present? %>
+                <% if article.tags.any? %>
                   <% article.tags.each do |tag| %>
                     <%= link_to tag.name.capitalize, tag_path(tag), class: "btn btn-sm btn-info" %>
                   <% end %>
